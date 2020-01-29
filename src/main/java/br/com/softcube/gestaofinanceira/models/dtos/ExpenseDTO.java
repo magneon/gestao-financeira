@@ -2,42 +2,45 @@ package br.com.softcube.gestaofinanceira.models.dtos;
 
 import java.time.LocalDate;
 
-import br.com.softcube.gestaofinanceira.models.Lancamento;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-public class LancamentoDTO {
+import br.com.softcube.gestaofinanceira.models.Expense;
 
-	private String nome;
-	private String descricao;
-	private Double valor;
-	private LocalDate data;
-	private String tipo;
+@JsonRootName(value = "expense")
+public class ExpenseDTO {
 
-	public LancamentoDTO(Lancamento lancamento) {
-		this.nome = lancamento.getNome();
-		this.descricao = lancamento.getDescricao();
-		this.valor = lancamento.getValor();
-		this.data = lancamento.getData();
-		this.tipo = lancamento.getTipo().name();
+	private String name;
+	private String description;
+	private Double value;
+	private LocalDate date;
+	private String type;
+
+	public ExpenseDTO(Expense expense) {
+		this.name = expense.getExpenseName();
+		this.description = expense.getExpenseDescription();
+		this.value = expense.getExpenseValue();
+		this.date = expense.getExpenseDate();
+		this.type = expense.getExpenseType().name();
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public Double getValor() {
-		return valor;
+	public Double getValue() {
+		return value;
 	}
 
-	public LocalDate getData() {
-		return data;
+	public LocalDate getDate() {
+		return date;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public String getType() {
+		return type;
 	}
 
 }
