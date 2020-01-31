@@ -1,12 +1,12 @@
-package br.com.softcube.gestaofinanceira.models.forms;
+package br.com.softcube.expensemanagement.models.forms;
 
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import br.com.softcube.gestaofinanceira.models.Expense;
-import br.com.softcube.gestaofinanceira.models.enums.ExpenseType;
+import br.com.softcube.expensemanagement.models.Expense;
+import br.com.softcube.expensemanagement.models.enums.ExpenseType;
 
 public class ExpenseForm {
 

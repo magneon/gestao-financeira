@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.models;
+package br.com.softcube.expensemanagement.models;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.softcube.gestaofinanceira.models.enums.ExpenseType;
+import br.com.softcube.expensemanagement.models.enums.ExpenseType;
 
 @Entity(name = "expense")
 public class Expense {

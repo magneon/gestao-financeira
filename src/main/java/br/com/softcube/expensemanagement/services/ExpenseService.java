@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.services;
+package br.com.softcube.expensemanagement.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.softcube.gestaofinanceira.daos.ExpenseDao;
-import br.com.softcube.gestaofinanceira.models.Expense;
-import br.com.softcube.gestaofinanceira.models.dtos.ExpenseDTO;
-import br.com.softcube.gestaofinanceira.models.forms.ExpenseForm;
+import br.com.softcube.expensemanagement.daos.ExpenseDao;
+import br.com.softcube.expensemanagement.models.Expense;
+import br.com.softcube.expensemanagement.models.dtos.ExpenseDTO;
+import br.com.softcube.expensemanagement.models.forms.ExpenseForm;
 
 @Service
 public class ExpenseService {
