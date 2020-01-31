@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.models.enums;
+package br.com.softcube.expensemanagement.models.enums;
 
 public enum ExpenseType {
 	

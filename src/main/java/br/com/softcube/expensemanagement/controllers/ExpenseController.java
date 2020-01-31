@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.controllers;
+package br.com.softcube.expensemanagement.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.softcube.gestaofinanceira.models.Expense;
-import br.com.softcube.gestaofinanceira.models.dtos.ExpenseDTO;
-import br.com.softcube.gestaofinanceira.models.forms.ExpenseForm;
-import br.com.softcube.gestaofinanceira.services.ExpenseService;
+import br.com.softcube.expensemanagement.models.Expense;
+import br.com.softcube.expensemanagement.models.dtos.ExpenseDTO;
+import br.com.softcube.expensemanagement.models.forms.ExpenseForm;
+import br.com.softcube.expensemanagement.services.ExpenseService;
 
 @RestController
 @RequestMapping("/expense")

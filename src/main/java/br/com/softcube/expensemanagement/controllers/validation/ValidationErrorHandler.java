@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.controllers.validation;
+package br.com.softcube.expensemanagement.controllers.validation;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import br.com.softcube.gestaofinanceira.models.dtos.FormErrorMessageDTO;
+import br.com.softcube.expensemanagement.models.dtos.FormErrorMessageDTO;
 
 @RestControllerAdvice
 public class ValidationErrorHandler {

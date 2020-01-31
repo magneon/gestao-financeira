@@ -1,4 +1,4 @@
-package br.com.softcube.gestaofinanceira.models.dtos;
+package br.com.softcube.expensemanagement.models.dtos;
 
 public class FormErrorMessageDTO {
 	

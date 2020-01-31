@@ -1,10 +1,10 @@
-package br.com.softcube.gestaofinanceira.models.dtos;
+package br.com.softcube.expensemanagement.models.dtos;
 
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-import br.com.softcube.gestaofinanceira.models.Expense;
+import br.com.softcube.expensemanagement.models.Expense;
 
 @JsonRootName(value = "expense")
 public class ExpenseDTO {
