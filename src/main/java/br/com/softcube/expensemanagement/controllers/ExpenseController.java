@@ -38,6 +38,11 @@ public class ExpenseController {
 	public ResponseEntity<ExpenseDTO> detailExpense(@PathVariable Long id) {
 		return serviceExpense.getExpensesDetailById(id);
 	}
+
+	@GetMapping(value = "/period/{period}")
+	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(@PathVariable("period") String period) {
+		return serviceExpense.getExpensesByPeriod(period);
+	}
 	
 	@PostMapping
 	public ResponseEntity<Expense> createNewExpense(@RequestBody @Valid ExpenseForm form, UriComponentsBuilder builder) {

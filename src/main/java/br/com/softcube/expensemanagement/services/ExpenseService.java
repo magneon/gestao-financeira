@@ -1,7 +1,16 @@
 package br.com.softcube.expensemanagement.services;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalAccessor;
+import java.time.temporal.TemporalAdjusters;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -22,7 +31,7 @@ public class ExpenseService {
 	private ExpenseDao daoExpense;
 
 	public List<Expense> getExpensesWithoutFilter() {
-		return daoExpense.findAll();
+		return daoExpense.findAll().stream().sorted(Comparator.comparing(Expense::getExpenseDate).reversed()).collect(Collectors.toList());
 	}
 
 	public ResponseEntity<ExpenseDTO> getExpensesDetailById(Long id) {
@@ -61,5 +70,22 @@ public class ExpenseService {
 		}
 		
 		return ResponseEntity.notFound().build();
-	}	
+	}
+
+	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String period) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", Locale.forLanguageTag("pt-BR"));
+		TemporalAccessor temporalAccessor = formatter.parse(period);
+		LocalDateTime date = LocalDateTime.now().withYear(temporalAccessor.get(ChronoField.YEAR)).withMonth(temporalAccessor.get(ChronoField.MONTH_OF_YEAR));
+
+		LocalDate dtIni = date.with(TemporalAdjusters.firstDayOfMonth()).toLocalDate();
+		LocalDate dtEnd = date.with(TemporalAdjusters.lastDayOfMonth()).toLocalDate();
+
+		List<Expense> expenses = daoExpense.findByDate(dtIni, dtEnd);
+		if (!expenses.isEmpty()) {
+			List<ExpenseDTO> expensesDTO = expenses.stream().map(expense -> new ExpenseDTO(expense)).sorted(Comparator.comparing(ExpenseDTO::getDate).reversed()).collect(Collectors.toList());
+
+			return ResponseEntity.ok().body(expensesDTO);
+		}
+		return null;
+	}
 }
