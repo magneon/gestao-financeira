@@ -1,5 +1,6 @@
 package br.com.softcube.expensemanagement.daos;
 
+/*
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,3 +14,4 @@ public interface UserDao extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);
 	
 }
+*/

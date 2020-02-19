@@ -1,5 +1,6 @@
 package br.com.softcube.expensemanagement.models;
 
+/*
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,3 +39,4 @@ public class Role implements GrantedAuthority {
 	}
 
 }
+*/
