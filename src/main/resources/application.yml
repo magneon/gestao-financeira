@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: Softcube@2019!
-    url: jdbc:mysql://192.168.99.100:3306/gestao_financeiraDB
-    username: root
+    password: 142500
+    url: jdbc:mysql://localhost:3306/expenses_management
+    username: rafael-moura
   jpa:
     hibernate:
       ddl-auto: update

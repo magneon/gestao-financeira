@@ -1,10 +1,10 @@
-package br.com.softcube.gestaofinanceira;
+package br.com.softcube.expensemanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GestaoFinanceiraApplicationTests {
+class ExpenseManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
