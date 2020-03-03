@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -26,6 +27,8 @@ import br.com.softcube.expensemanagement.models.forms.ExpenseForm;
 
 @Service
 public class ExpenseService {
+
+	private static final Logger LOG = Logger.getLogger(ExpenseService.class.getName());
 	
 	@Autowired
 	private ExpenseDao daoExpense;
@@ -73,7 +76,12 @@ public class ExpenseService {
 	}
 
 	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String period) {
+		LOG.info(">>> Period: " + period);
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", Locale.forLanguageTag("pt-BR"));
+
+		LOG.info(">>> Formatter: " + formatter);
+
 		TemporalAccessor temporalAccessor = formatter.parse(period);
 		LocalDateTime date = LocalDateTime.now().withYear(temporalAccessor.get(ChronoField.YEAR)).withMonth(temporalAccessor.get(ChronoField.MONTH_OF_YEAR));
 
