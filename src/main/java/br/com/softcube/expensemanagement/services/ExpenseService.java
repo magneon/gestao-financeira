@@ -78,7 +78,11 @@ public class ExpenseService {
 	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String period) {
 		LOG.info(">>> Period: " + period);
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", Locale.forLanguageTag("pt-BR"));
+		Locale languageTag = Locale.forLanguageTag("pt-BR");
+
+		LOG.info(">>> Language Tag: " + languageTag.toString());
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", languageTag);
 
 		LOG.info(">>> Formatter: " + formatter.toString());
 
