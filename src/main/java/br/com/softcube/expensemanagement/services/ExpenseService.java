@@ -80,7 +80,7 @@ public class ExpenseService {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", Locale.forLanguageTag("pt-BR"));
 
-		LOG.info(">>> Formatter: " + formatter);
+		LOG.info(">>> Formatter: " + formatter.toString());
 
 		TemporalAccessor temporalAccessor = formatter.parse(period);
 		LocalDateTime date = LocalDateTime.now().withYear(temporalAccessor.get(ChronoField.YEAR)).withMonth(temporalAccessor.get(ChronoField.MONTH_OF_YEAR));
