@@ -75,19 +75,8 @@ public class ExpenseService {
 		return ResponseEntity.notFound().build();
 	}
 
-	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String period) {
-		LOG.info(">>> Period: " + period);
-
-		Locale languageTag = Locale.forLanguageTag("pt-BR");
-
-		LOG.info(">>> Language Tag: " + languageTag.toString());
-
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM-yyyy", languageTag);
-
-		LOG.info(">>> Formatter: " + formatter.toString());
-
-		TemporalAccessor temporalAccessor = formatter.parse(period);
-		LocalDateTime date = LocalDateTime.now().withYear(temporalAccessor.get(ChronoField.YEAR)).withMonth(temporalAccessor.get(ChronoField.MONTH_OF_YEAR));
+	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String month, String year) {
+		LocalDateTime date = LocalDateTime.now().withMonth(Integer.valueOf(month)).withYear(Integer.valueOf(year));
 
 		LocalDate dtIni = date.with(TemporalAdjusters.firstDayOfMonth()).toLocalDate();
 		LocalDate dtEnd = date.with(TemporalAdjusters.lastDayOfMonth()).toLocalDate();

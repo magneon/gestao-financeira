@@ -39,9 +39,9 @@ public class ExpenseController {
 		return serviceExpense.getExpensesDetailById(id);
 	}
 
-	@GetMapping(value = "/period/{period}")
-	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(@PathVariable("period") String period) {
-		return serviceExpense.getExpensesByPeriod(period);
+	@GetMapping(value = "/period/{month}/{year}")
+	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(@PathVariable("month") String month, @PathVariable("year") String year) {
+		return serviceExpense.getExpensesByPeriod(month, year);
 	}
 	
 	@PostMapping
