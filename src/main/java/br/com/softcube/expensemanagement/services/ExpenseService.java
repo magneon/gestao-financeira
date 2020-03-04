@@ -10,12 +10,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,8 +28,8 @@ import br.com.softcube.expensemanagement.models.forms.ExpenseForm;
 @Service
 public class ExpenseService {
 
-	private static final Logger LOG = Logger.getLogger(ExpenseService.class.getName());
-	
+	private static final Logger LOG = Logger.getLogger(ExpenseService.class);
+
 	@Autowired
 	private ExpenseDao daoExpense;
 
@@ -40,15 +40,15 @@ public class ExpenseService {
 	public ResponseEntity<ExpenseDTO> getExpensesDetailById(Long id) {
 		Optional<Expense> expense = daoExpense.findById(id);
 		if (expense.isPresent()) {
-			return ResponseEntity.ok().body(new ExpenseDTO(expense.get()));			
-		}		
+			return ResponseEntity.ok().body(new ExpenseDTO(expense.get()));
+		}
 		return ResponseEntity.notFound().build();
 	}
 
 	public Expense createExpense(@Valid ExpenseForm form) {
 		Expense expense = form.convertFormToModel();
 		daoExpense.save(expense);
-		
+
 		return expense;
 	}
 
@@ -57,10 +57,10 @@ public class ExpenseService {
 		Optional<Expense> expense = daoExpense.findById(id);
 		if (expense.isPresent()) {
 			form.updateModel(expense.get());
-			
-			return ResponseEntity.ok().body(expense.get());			
+
+			return ResponseEntity.ok().body(expense.get());
 		}
-		
+
 		return ResponseEntity.notFound().build();
 	}
 
@@ -68,15 +68,15 @@ public class ExpenseService {
 		Optional<Expense> expense = daoExpense.findById(id);
 		if (expense.isPresent()) {
 			daoExpense.delete(expense.get());
-			
+
 			return ResponseEntity.ok().build();
 		}
-		
+
 		return ResponseEntity.notFound().build();
 	}
 
 	public ResponseEntity<List<ExpenseDTO>> getExpensesByPeriod(String month, String year) {
-		LocalDateTime date = LocalDateTime.now().withMonth(Integer.valueOf(month)).withYear(Integer.valueOf(year));
+		LocalDateTime date = LocalDateTime.now().withYear(Integer.parseInt(year)).withMonth(Integer.parseInt(month));
 
 		LocalDate dtIni = date.with(TemporalAdjusters.firstDayOfMonth()).toLocalDate();
 		LocalDate dtEnd = date.with(TemporalAdjusters.lastDayOfMonth()).toLocalDate();
