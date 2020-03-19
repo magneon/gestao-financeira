@@ -2,8 +2,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: 142500
-    #url: jdbc:mysql://localhost:3306/expenses_management
-    url: jdbc:mysql://bb95d4c42aca2d:3973f103@us-cdbr-iron-east-04.cleardb.net/heroku_7584de5de2b149a?reconnect=false
+    url: jdbc:mysql://localhost:3306/expenses_management
+    #url: jdbc:mysql://bb95d4c42aca2d:3973f103@us-cdbr-iron-east-04.cleardb.net/heroku_7584de5de2b149a?reconnect=false
     username: rafael-moura
   jpa:
     hibernate:
@@ -12,3 +12,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
+
+expenses-management:
+  secret: 6PkYa1aqEQe_MdqVv_Xss8aa2UkZ5QsMm9qqgFrFMsRIpfn9L-oZpG_kqCkH9sK8XZEfga6JI0KZTV50l81tB_JLSZDrkmSu3d8DuaboE0yxJMRdVDnXnJz76EaXJfBmDC0r1S_1Rtdwfnfn4dJ4Oj7Kiz4sPvioH2815pbrJ58alSOGLV64PubufOBvsJK4pJ5ogUKXLeP7qK8JMU0dZVB5iJXulIzWxZQEXPh-A59PLxGqPYuhg-wruj3lPejt88H102Yk6Z68I5n14MfNH3xxw7HWjf0QZmWxF4mVWWRpTygS6YD2s_RUZeDNlUKMzEYquTGdSKV7AO05iHenHA

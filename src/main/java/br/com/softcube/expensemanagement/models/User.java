@@ -1,6 +1,5 @@
 package br.com.softcube.expensemanagement.models;
 
-/*
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -95,4 +94,3 @@ public class User implements UserDetails {
 	}
 	
 }
-*/
